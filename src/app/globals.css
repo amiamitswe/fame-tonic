@@ -10,6 +10,7 @@
   --color-primary: #fc004e;
   --color-secondary: #00e7f9;
   --color-gray: #ababab;
+  --color-gray-1: #a9a9a9;
 
   --gradient-primary: linear-gradient(
     89.63deg,
@@ -17,9 +18,14 @@
     var(--color-secondary) 115.27%
   );
 
-  --text-22: 22px;
+  --text-22px: 22px;
+  --text-35px: 35px;
 
-  --leading-full: 100%
+  --leading-full: 100%;
+  --leading-22px: 22px;
+
+  --spacing-57px: 57px;
+  --spacing-100px: 100px;
 }
 
 @layer base {
@@ -37,4 +43,35 @@
   .bg-gradient {
     background: var(--gradient-primary);
   }
+
+  .text-shadow-glow {
+    text-shadow: 0px 4px 4px var(--color-primary);
+  }
+}
+
+.glitch {
+  position: relative;
+  color: white;
+  font-weight: 800;
+  font-size: 5rem;
+  font-family: "sans-serif";
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.glitch::before {
+  color: cyan;
+  transform: translate(-3px, 0);
+}
+
+.glitch::after {
+  color: magenta;
+  transform: translate(3px, 0);
 }
