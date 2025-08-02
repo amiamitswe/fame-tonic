@@ -1,7 +1,6 @@
 import { Figtree, Urbanist } from "next/font/google";
 import "./globals.css";
 import TopBanner from "@/components/TopBanner";
-import Header from "@/components/Header";
 
 const figtree = Figtree({
   variable: "--font-figtree",
@@ -25,8 +24,8 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${figtree.variable} ${urbanist.variable} antialiased`}>
         <TopBanner />
-        <Header />
-        <main className="container">{children}</main>
+
+        <main>{children}</main>
       </body>
     </html>
   );

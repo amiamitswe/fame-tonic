@@ -1,13 +1,27 @@
 import Link from "next/link";
 import React from "react";
 import BrandLogo from "./BrandLogo";
+import { cn } from "../../helper/utils";
+import Image from "next/image";
 
-function Header() {
+function Header({ className }) {
   return (
-    <header className="container flex justify-between items-start mt-[35px]">
-       <BrandLogo />
+    <header
+      className={cn(
+        "container relative flex lg:justify-between justify-center items-start mt-[35px] order-1 ",
+        className
+      )}
+    >
+      <Link href="/">
+        <div className="hidden lg:block">
+          <BrandLogo />
+        </div>
+        <div className="lg:hidden">
+          <BrandLogo isMobile />
+        </div>
+      </Link>
 
-      <div className="flex gap-x-10">
+      <div className="gap-x-10 hidden lg:flex">
         <Link
           className="text-[18px] font-semibold leading-[22px] text-gray-1"
           href="/"
@@ -21,6 +35,10 @@ function Header() {
           Contact
         </Link>
       </div>
+
+      <button className="lg:hidden absolute right-7 cursor-pointer">
+        <Image src="/menu-icon.svg" alt="menu-icon" width={24} height={24} />
+      </button>
     </header>
   );
 }
